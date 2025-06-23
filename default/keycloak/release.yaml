@@ -21,6 +21,16 @@ spec:
       host: pmh-postgres.default.svc.cluster.local
       port: 5432
       database: postgres
-      user: user
-      password: "SuperSecretPassword46f"
+      user:
+        valueFrom:
+          secretKeyRef:
+            name: pmh-postgres-secrets
+            namespace: default
+            key: db_user
+      password:
+        valueFrom:
+          secretKeyRef:
+            name: pmh-postgres-secrets
+            namespace: default
+            key: root_password
   timeout: 10m
