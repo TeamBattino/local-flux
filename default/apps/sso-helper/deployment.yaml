@@ -21,6 +21,7 @@ spec:
       containers:
         - name: sso-helper
           image: ghcr.io/PfadiMH/sso-helper:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
           envFrom:
