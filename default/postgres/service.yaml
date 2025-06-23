@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pmh-postgres
+  labels:
+    app: pmh-app
+spec:
+  ports:
+    - port: 5432
+  type: LoadBalancer
+  selector:
+    app: pmh-app
+    tier: postgres
