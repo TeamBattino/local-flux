@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sso-helper
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sso-helper
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+  template:
+    metadata:
+      labels:
+        app: sso-helper
+    spec:
+      containers:
+        - name: sso-helper
+          image: ghcr.io/PfadiMH/sso-helper:latest
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - secretRef:
+                name: sso-helper
