@@ -11,5 +11,5 @@ spec:
     - match: PathPrefix(`/`)
       kind: Rule
       services:
-        - name: keycloak
+        - name: default-keycloak
           port: 8080
