@@ -4,5 +4,5 @@ metadata:
   name: sso-helper
   namespace: default
 spec:
-  image: ghcr.io/PfadiMH/sso-helper:latest
+  image: ghcr.io/PfadiMH/sso-helper
   interval: 1m
