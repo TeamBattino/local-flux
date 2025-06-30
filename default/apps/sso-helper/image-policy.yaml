@@ -7,5 +7,14 @@ spec:
   imageRepositoryRef:
     name: sso-helper
   policy:
-    semver:
-      range: ">=0.0.0"
+    lua:
+      source: |
+        return function(tags)
+          local latest = nil
+          for _, tag in ipairs(tags) do
+            if latest == nil or tag > latest then
+              latest = tag
+            end
+          end
+          return latest
+        end
