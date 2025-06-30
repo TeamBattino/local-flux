@@ -7,14 +7,5 @@ spec:
   imageRepositoryRef:
     name: sso-helper
   policy:
-    lua:
-      source: |
-        return function(tags)
-          local latest = nil
-          for _, tag in ipairs(tags) do
-            if latest == nil or tag > latest then
-              latest = tag
-            end
-          end
-          return latest
-        end
+    alphabetical:
+      order: asc
